@@ -6,6 +6,7 @@ import Button from "../components/body/button/button"
 import { AiFillEnvironment } from "react-icons/ai"
 import { useRouter } from "next/router"
 import Input from "../components/body/input/input"
+import Footer from "../components/footer/footer"
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(false)
@@ -26,12 +27,16 @@ export default function Home() {
                 {isVisible ? (
                     <div className={styles.button}>
                         <AiFillEnvironment size={20} />
+
                         <Geobis setAd={setAd} ad={ad} />
+
                         <Input
-                            label="Rayon en km"
+                            label=""
                             onChange={e => {
                                 setRadius(e.target.value)
                             }}
+                            className="input input-select2"
+                            placeholder="Rayon en km"
                         />
                         <Button
                             title="Valider"
@@ -51,21 +56,30 @@ export default function Home() {
                             onClick={() => {
                                 setIsVisible(true)
                             }}
+                            className={styles.button}
                         >
                             <Modal />
                         </Button>
-                        <Modal />
-                        <Modal />
+                        <Button
+                            onClick={() => {
+                                setIsVisible(true)
+                            }}
+                            className={styles.button}
+                        >
+                            <Modal />
+                        </Button>
+
+                        <Button
+                            onClick={() => {
+                                setIsVisible(true)
+                            }}
+                            className={styles.button}
+                        >
+                            <Modal />
+                        </Button>
                     </div>
                 </div>
             </div>
-            {/* {isVisible ? (
-                <div className={styles.child2}>
-                    <ModalAdress />
-                </div>
-            ) : (
-                ""
-            )} */}
         </div>
     )
 }
