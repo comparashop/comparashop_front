@@ -1,0 +1,42 @@
+.btn {
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    // font-size: 14px;
+    &-grey {
+        background-color: #424446;
+        color: #ffffff;
+        width: 25%;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 5px;
+        font-weight: bold;
+        &:hover {
+            background-color: #424446;
+            color: #ffffff;
+        }
+    }
+    &-white {
+        background-color: #ffffff;
+        color: #424446;
+        width: 25%;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 5px;
+        font-weight: bold;
+        &:hover {
+            background-color: #ffffff;
+            color: #424446;
+        }
+    }
+
+    &-link {
+        background-color: #ffffff;
+        font-size: 11px;
+        text-decoration: underline;
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}

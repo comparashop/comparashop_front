@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #20232a;
+    color: #61dafb;
+
+    .ul {
+        list-style-type: none;
+        display: flex;
+
+        .li {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .image {
+            height: 100px;
+            width: 100px;
+        }
+    }
+}
