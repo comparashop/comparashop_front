@@ -6,7 +6,7 @@ import ImgMarker from "../../../public/emplacement.jpg"
 import Button from "../button/button"
 import GeoModal from "../geomodal/geomodal"
 
-export default function Index({ localization }) {
+export default function Index({ localization, rayon }) {
     const [isVisible, setIsVisible] = useState(false)
     // const [currentLocation, setCurrentLocation] = useState({});
     // localization = { lat: 48.866667, lng: 2.333333 }
@@ -14,9 +14,16 @@ export default function Index({ localization }) {
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     })
     if (!isLoaded) return <div>Loading...</div>
-    return <Map localization={localization} isVisible={isVisible} setIsVisible={setIsVisible} />
+    return (
+        <Map
+            localization={localization}
+            isVisible={isVisible}
+            setIsVisible={setIsVisible}
+            rayon={rayon}
+        />
+    )
 }
-function Map({ localization, isVisible, setIsVisible }) {
+function Map({ localization, isVisible, setIsVisible, rayon }) {
     const [idMarker, setIdMarker] = useState()
     const [filtreMarker, setFiltreMarker] = useState({})
     const [markers, setMarkers] = useState([])
@@ -25,7 +32,7 @@ function Map({ localization, isVisible, setIsVisible }) {
     const horslimite = { lat: 48.5390015, lng: -2.98909 }
 
     const customMarkerIcon = {
-        // url: "https://stock.adobe.com/fr/images/location-pin-icon-on-transparent-map-marker-sign-flat-style-map-point-symbol-map-pointer-symbol-map-pin-sign/280874872", // Chemin vers votre icône personnalisée
+        url: "https://www.google.com/search?q=icon+de+marker&rlz=1C1CHBF_frFR941FR941&oq=icon+de+marker&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMggIAxAAGBYYHjIICAQQABgWGB4yCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCAgIEAAYFhgeMggICRAAGBYYHtIBCDI4ODdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#vhid=1RVtAa7Xo4m0SM&vssid=l",
         scaledSize: new window.google.maps.Size(40, 40), // Taille de l'icône (en pixels)
     }
 
@@ -96,16 +103,20 @@ function Map({ localization, isVisible, setIsVisible }) {
     }
 
     useEffect(() => {
-        setVisibleMarkers(markers.filter(marker => isMarkerInRadius(marker, 8000)))
+        setVisibleMarkers(markers.filter(marker => isMarkerInRadius(marker, rayon * 1000)))
     }, [markers])
 
     return (
         <div>
-            <GoogleMap zoom={14} center={localization} mapContainerClassName={styles.mapcontainer}>
-                {localization && <CircleF center={localization} radius={8000} />}
+            <GoogleMap
+                zoom={Math.log2((40075016.686 * 50) / (360 * rayon)) - 8}
+                center={localization}
+                mapContainerClassName={styles.mapcontainer}
+            >
+                {localization && <CircleF center={localization} radius={rayon * 1000} />}
                 {localization && (
                     <div>
-                        <MarkerF icon={customMarkerIcon} position={localization} />
+                        <MarkerF position={localization} />
 
                         {visibleMarkers.map((marker, index) => (
                             <div key={index}>

@@ -5,14 +5,18 @@ import Geobis from "../components/body/geobis/geobis"
 import Button from "../components/body/button/button"
 import { AiFillEnvironment } from "react-icons/ai"
 import { useRouter } from "next/router"
+import Input from "../components/body/input/input"
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(false)
     const [ad, setAd] = useState({})
+    const [radius, setRadius] = useState()
     const router = useRouter()
 
     const sendAddress = () => {
-        router.push(`/localisation?lat=${ad.localization.lat}&lng=${ad.localization.lng}`)
+        router.push(
+            `/localisation?lat=${ad.localization.lat}&lng=${ad.localization.lng}&radius=${radius}`,
+        )
     }
 
     return (
@@ -23,6 +27,12 @@ export default function Home() {
                     <div className={styles.button}>
                         <AiFillEnvironment size={20} />
                         <Geobis setAd={setAd} ad={ad} />
+                        <Input
+                            label="Rayon en km"
+                            onChange={e => {
+                                setRadius(e.target.value)
+                            }}
+                        />
                         <Button
                             title="Valider"
                             className="btn btn-grey"
