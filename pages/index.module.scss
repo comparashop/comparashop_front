@@ -2,9 +2,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.mainmodal {
-    width: 75%;
     margin: auto;
-    margin-bottom: 3%;
+}
+
+.mainmodal {
+    // width: 75%;
+    margin: auto;
+}
+
+.parent {
+    z-index: 99999;
+    //opacity:0.80;
+}
+
+.child1 {
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 0;
+}
+
+.child2 {
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 500px;
+    background-color: red;
+}
+
+.button {
+    display: flex;
 }

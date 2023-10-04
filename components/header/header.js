@@ -14,7 +14,7 @@ const Header = () => {
                         size={30}
                         color="#61dafb"
                         onClick={() => {
-                            logout()
+                            // logout()
                         }}
                         className={styles.logout}
                     />
