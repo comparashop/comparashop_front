@@ -68,3 +68,14 @@
     border: none;
     position: relative; /* Ajoutez le positionnement relatif */
 }
+.button {
+    display: flex;
+    border: 0px;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+}
+
+.main {
+    display: flex;
+}

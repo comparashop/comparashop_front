@@ -6,13 +6,15 @@ import Button from "../components/body/button/button"
 import { AiFillEnvironment } from "react-icons/ai"
 import { useRouter } from "next/router"
 import Input from "../components/body/input/input"
-import Footer from "../components/footer/footer"
+import panierService from "../services/panier.service"
+import Image from "next/image"
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(false)
     const [ad, setAd] = useState({})
     const [radius, setRadius] = useState()
     const router = useRouter()
+    const [paniers, setPaniers] = useState([])
 
     const sendAddress = () => {
         router.push(
@@ -20,11 +22,20 @@ export default function Home() {
         )
     }
 
+    useEffect(() => {
+        panierService
+            .getAll()
+            .then(data => {
+                console.log(data)
+                setPaniers(data.panier)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div className={styles.parent}>
             <div className={styles.child1}>
                 <h1 className={`text text-center ${styles.h1}`}>Choisissez un panier</h1>
-                <br />
                 {isVisible ? (
                     <div className={styles.button}>
                         <AiFillEnvironment color={"#0f6819"} size={40} />
@@ -55,31 +66,7 @@ export default function Home() {
                 <br />
                 <div className={styles.mainmodal}>
                     <div className={styles.modal}>
-                        <Button
-                            onClick={() => {
-                                setIsVisible(true)
-                            }}
-                            className={styles.button}
-                        >
-                            <Modal />
-                        </Button>
-                        <Button
-                            onClick={() => {
-                                setIsVisible(true)
-                            }}
-                            className={styles.button}
-                        >
-                            <Modal />
-                        </Button>
-
-                        <Button
-                            onClick={() => {
-                                setIsVisible(true)
-                            }}
-                            className={styles.button}
-                        >
-                            <Modal />
-                        </Button>
+                        <Modal />
                     </div>
                 </div>
             </div>
