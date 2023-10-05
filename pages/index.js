@@ -15,10 +15,11 @@ export default function Home() {
     const [radius, setRadius] = useState()
     const router = useRouter()
     const [paniers, setPaniers] = useState([])
+    const [idModal, setIdModal] = useState("")
 
     const sendAddress = () => {
         router.push(
-            `/localisation?lat=${ad.localization.lat}&lng=${ad.localization.lng}&radius=${radius}`,
+            `/localisation?id=${idModal}&lat=${ad.localization.lat}&lng=${ad.localization.lng}&radius=${radius}`,
         )
     }
 
@@ -35,10 +36,11 @@ export default function Home() {
     return (
         <div className={styles.parent}>
             <div className={styles.child1}>
+                <br />
                 <h1 className={`text text-center ${styles.h1}`}>Choisissez un panier</h1>
                 {isVisible ? (
                     <div className={styles.button}>
-                        <AiFillEnvironment color={"#0f6819"} size={40} />
+                        <AiFillEnvironment color={"#e48152"} size={30} />
                         <div className={styles.div1}>
                             <Geobis setAd={setAd} ad={ad} />
                         </div>
@@ -54,7 +56,7 @@ export default function Home() {
                         </div>
                         <Button
                             title="Valider"
-                            className="btn btn-white"
+                            className="btn btn-orange"
                             onClick={() => {
                                 sendAddress()
                             }}
@@ -66,7 +68,7 @@ export default function Home() {
                 <br />
                 <div className={styles.mainmodal}>
                     <div className={styles.modal}>
-                        <Modal />
+                        <Modal setIsVisible={setIsVisible} setIdModal={setIdModal} />
                     </div>
                 </div>
             </div>

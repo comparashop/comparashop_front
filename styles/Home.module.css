@@ -1,4 +1,7 @@
-.container {
+.red {
+    background-color: red;
+}
+/* .container {
   padding: 0 2rem;
 }
 
@@ -126,4 +129,4 @@
   .logo img {
     filter: invert(1);
   }
-}
+} */

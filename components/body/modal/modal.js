@@ -5,7 +5,7 @@ import Image from "next/image"
 import Button from "../button/button"
 import panierService from "../../../services/panier.service"
 
-const Modal = () => {
+const Modal = ({ setIdModal, setIsVisible }) => {
     const [paniers, setPaniers] = useState([])
     useEffect(() => {
         panierService
@@ -25,6 +25,7 @@ const Modal = () => {
                       <div key={element._id}>
                           <Button
                               onClick={() => {
+                                  setIdModal(element._id)
                                   setIsVisible(true)
                               }}
                               className={styles.button}
@@ -43,6 +44,7 @@ const Modal = () => {
                                           }}
                                       ></h2>
                                   </div>
+                                  <br />
                                   <h1 className={`text text-center ${styles.paniertitle}`}>
                                       {element.title}
                                   </h1>

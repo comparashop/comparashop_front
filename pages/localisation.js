@@ -5,12 +5,16 @@ import styles from "./localisation.module.scss"
 const Localisation = () => {
     const [localisation, setLocalisation] = useState({ lat: 48.866667, lng: 2.333333 })
     const [radius, setRadius] = useState()
+    const [id, setId] = useState()
 
     useEffect(() => {
         var latitude = ""
         var longitude = ""
         const url = window.location.search.split("?")[1].split("&")
         url.forEach(element => {
+            if (element.split("=")[0] == "id") {
+                setId(element.split("=")[1])
+            }
             if (element.split("=")[0] == "lat") {
                 latitude = element.split("=")[1]
             }
@@ -26,15 +30,13 @@ const Localisation = () => {
 
     return (
         <div>
+            <br />
+            <br />
             <h1 className="text text-center">
-                Retrouver les différents commences dans un rayon de {radius * 1000} km <br />
-                de votre emplacement choisi
+                Retrouver les différents commences dans un rayon de {radius} km
             </h1>
             <br />
-            <h2 className={`text text-center ${styles.soustitre}`}>
-                Cliquer sur les marqueurs pour visionner les différents prix
-            </h2>
-            <Geo localization={localisation} rayon={radius} />
+            <Geo localization={localisation} rayon={radius} id={id} />
         </div>
     )
 }

@@ -28,10 +28,12 @@ const Informations = () => {
 
     return (
         <div className="mainContent">
+            <br />
             <h1 className={`text text-center ${styles.title}`}>
                 Entrez les informations de votre panier <br />
                 ou scanner votre CODE-QR
             </h1>
+            <br />
             <div className={styles.button}>
                 <Button
                     title="Scanner votre ticket de caisse"
@@ -43,6 +45,7 @@ const Informations = () => {
                     <Image src={QRcode} height={80} width={80} />
                 </Button>
             </div>
+            <br />
             <div className={styles.main}>
                 <div className={styles.col}>
                     <Input
@@ -75,9 +78,10 @@ const Informations = () => {
                         {listAliment ? (
                             <div>
                                 <h1 className={styles.h1}>{"Produits en cours d'ajout"}</h1>
+                                <br />
                                 <div className={styles.box}>
                                     <div>
-                                        <AiFillEnvironment color="#ffffff" size={20} />
+                                        <AiFillEnvironment color="#ffffff" size={30} />
                                     </div>
                                     <div>
                                         <Geobis setAd={setLocalization} ad={localization} />
@@ -86,7 +90,7 @@ const Informations = () => {
                                 <div>
                                     <ul className={styles.liMenu}>
                                         <li>
-                                            <h2 className={styles.h2}>Article</h2>{" "}
+                                            <h2 className={styles.h2}>Article</h2>
                                             {listAliment.map(element => (
                                                 <div
                                                     className={styles.divmap}
@@ -101,7 +105,7 @@ const Informations = () => {
                                         </li>
 
                                         <li>
-                                            <h2 className={styles.h2}>Prix</h2>{" "}
+                                            <h2 className={styles.h2}>Prix</h2>
                                             {listAliment.map(element => (
                                                 <div
                                                     className={styles.divmap}
@@ -114,25 +118,25 @@ const Informations = () => {
                                             ))}
                                         </li>
                                         <li>
-                                            <h2 className={styles.h2}>Supprimer</h2>{" "}
+                                            <h2 className={styles.h2}>Supprimer</h2>
                                             {listAliment.map(element => (
                                                 <div
                                                     className={styles.divmap}
                                                     key={element.aliment}
                                                 >
                                                     <p className={styles.td}>
-                                                        <Button
-                                                            onClick={() => {
-                                                                setListAliment(
-                                                                    listAliment.filter(
-                                                                        al => al != element,
-                                                                    ),
-                                                                )
-                                                            }}
-                                                            className={styles.button3}
-                                                        >
-                                                            <AiOutlineClose color="#424446" />
-                                                        </Button>
+                                                        <div className={styles.icon}>
+                                                            <AiOutlineClose
+                                                                onClick={() => {
+                                                                    setListAliment(
+                                                                        listAliment.filter(
+                                                                            al => al != element,
+                                                                        ),
+                                                                    )
+                                                                }}
+                                                                color="#ffffff"
+                                                            />
+                                                        </div>
                                                     </p>
 
                                                     <br />
@@ -161,6 +165,9 @@ const Informations = () => {
                     ""
                 )}
             </div>
+            <br />
+            <br />
+            <br />
         </div>
     )
 }

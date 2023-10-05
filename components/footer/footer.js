@@ -73,35 +73,51 @@ const Footer = () => {
                     <div className={styles.leftCol}>
                         <ul>
                             <li>
-                                <Link href="/">Information légales</Link>
+                                <Link className={styles.a} href="/">
+                                    Information légales
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/">Politique de Confidentialité</Link>
+                                <Link className={styles.a} href="/">
+                                    Politique de Confidentialité
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/">Données personnelle & cookies</Link>
+                                <Link className={styles.a} href="/">
+                                    Données personnelle & cookies
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/">Préférences de cookies</Link>
+                                <Link className={styles.a} href="/">
+                                    Préférences de cookies
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/">Engagements qualités</Link>
+                                <Link className={styles.a} href="/">
+                                    Engagements qualités
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/">CGU</Link>
+                                <Link className={styles.a} href="/">
+                                    CGU
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/">CGV</Link>
+                                <Link className={styles.a} href="/">
+                                    CGV
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div className={styles.rightCol}>
                         <ul>
-                            <h2>Adresse et contact</h2>
+                            <h2 className={styles.a}>Adresse et contact</h2>
                             <div className={styles.item}>
                                 <li>
                                     <FaMobileAlt />
-                                    <a href="tel:+33602099391">06 02 09 93 91</a>
+                                    <a className={styles.a} href="tel:+33602099391">
+                                        06 02 09 93 91
+                                    </a>
                                 </li>
                             </div>
                             <div className={styles.item}>
@@ -114,7 +130,10 @@ const Footer = () => {
                             <div className={styles.item}>
                                 <li>
                                     <FaEnvelope />
-                                    <a href="mailto:baptiste.ogerau@ecoles-epsi.net">
+                                    <a
+                                        className={styles.a}
+                                        href="mailto:baptiste.ogerau@ecoles-epsi.net"
+                                    >
                                         baptiste.ogerau@ecoles-epsi.net
                                     </a>
                                 </li>

@@ -5,16 +5,16 @@
     border: 1px solid transparent;
     // font-size: 14px;
     &-grey {
-        background-color: #0f6819;
-        color: #ffffff;
+        background-color: white;
+        color: rgb(36, 32, 32);
         width: 25%;
         margin-right: auto;
         margin-left: auto;
         border-radius: 5px;
         font-weight: bold;
         &:hover {
-            background-color: #ffffff;
-            color: #0f6819;
+            background-color: rgb(36, 32, 32);
+            color: white;
         }
     }
     &-grey2 {
@@ -51,6 +51,21 @@
         text-decoration: underline;
         &:hover {
             font-weight: bold;
+        }
+    }
+    &-orange {
+        background-color: white;
+        color: #e48152;
+        width: 25%;
+        padding: 0px;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 5px;
+        font-weight: bold;
+        border: 1px solid #e48152;
+        &:hover {
+            background-color: #e48152;
+            color: white;
         }
     }
 }

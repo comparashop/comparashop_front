@@ -6,26 +6,10 @@
 }
 
 .mainmodal {
-    // width: 75%;
     margin: auto;
     margin-right: 8%;
     margin-left: 8%;
     margin-bottom: 3%;
-}
-
-.child1 {
-    background-color: #ffffff;
-    // position: absolute;
-    // z-index: 0;
-}
-
-.child2 {
-    background-color: #ffffff;
-    position: relative;
-    // z-index: 1;
-    width: 300px;
-    height: 500px;
-    background-color: red;
 }
 
 .button {
@@ -37,8 +21,8 @@
 }
 
 .h1 {
-    color: #0f6819;
-    text-shadow: 1px 1px #44a045;
+    color: rgb(36, 32, 32);
+    text-shadow: 1px 1px #474646;
     font-size: 3em;
 }
 
@@ -53,76 +37,3 @@
 .modal {
     display: flex;
 }
-
-///
-// ///
-// .block {
-//     width: 300px;
-//     height: 280px;
-//     background-color: #424446;
-//     border-radius: 5px;
-//     position: relative;
-// }
-
-// .h1,
-// .p {
-//     color: #ffffff;
-// }
-
-// .p {
-//     margin-left: 10%;
-// }
-
-// .paniertitle {
-//     color: #0f6819;
-//     text-shadow: 2px 2px #44a045;
-//     font-size: 3em;
-//     cursor: pointer;
-// }
-
-// .innercontainer {
-//     position: relative;
-//     width: 300px; // La même largeur que l'image
-//     height: 300px; // La même hauteur que l'image
-//     margin: auto;
-// }
-
-// .imagecontainer {
-//     position: relative; /* Ajoutez le positionnement relatif */
-// }
-// .imageEvent {
-//     width: 350px;
-//     height: 300px;
-//     cursor: pointer;
-//     margin: auto;
-//     transition: transform 0.2s ease-in-out;
-//     border-radius: 20px;
-// }
-
-// .paniername {
-//     font-size: 2em;
-//     cursor: pointer;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     opacity: 0;
-//     transition: opacity 0.2s ease-in-out;
-// }
-
-// .imagecontainer:hover .imageEvent {
-//     transform: scale(1.1);
-//     opacity: 0.2;
-//     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-// }
-
-// .imagecontainer:hover .paniername {
-//     opacity: 1;
-// }
-// .imagecontainer {
-//     flex-basis: calc(50% - 10px);
-//     margin-bottom: 20px;
-//     width: 400px;
-//     border: none;
-//     position: relative; /* Ajoutez le positionnement relatif */
-// }

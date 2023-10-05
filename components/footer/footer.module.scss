@@ -1,69 +1,11 @@
-// .main {
-//     width: 100%;
-//     background-color: rgba(31, 38, 45, 1);
-//     // position: absolute;
-//     /* En fixant la distance avec le bas à 0, on force le contenu à être aligné vers le bas */
-//     bottom: 0;
-//     .content {
-//         padding: 50px 20px;
-//         max-width: 1500px;
-//         margin: 0 auto;
-//         display: flex;
-//         flex-flow: wrap;
-//         gap: 20px;
-//         color: rgba(255, 255, 255, 1);
-//         justify-content: space-between;
-//         padding: 10px;
-//         .col {
-//             max-width: 400px;
-
-//             .title {
-//                 margin-bottom: 20px;
-//                 font-size: 14px;
-//             }
-//             .text {
-//                 font-size: 12px;
-//                 color: rgba(255, 255, 255, 1);
-//             }
-
-//             .item {
-//                 display: flex;
-//                 margin-bottom: 10px;
-//                 flex-shrink: 0;
-//                 font-size: 14px;
-//                 margin-right: 10px;
-//                 margin-top: 4px;
-//                 color: rgba(0, 0, 0, 0.5);
-//             }
-//         }
-//         .bottombar {
-//             border-top: 1px solid rgba(0, 0, 0, 0.1);
-//         }
-
-//         .bottombarcontent {
-//             padding: 20px;
-//             display: flex;
-//             align-items: center;
-//             flex-direction: column;
-//             text-align: center;
-//             gap: 15px;
-//             padding: 0;
-//             height: 40px;
-//             max-width: 1000px;
-//             margin: 0 auto;
-//             flex-direction: row;
-//             justify-content: space-between;
-//             text-align: left;
-//         }
-//     }
-// }
 .mainTitle {
     text-align: center;
 }
 
 .main {
     width: auto;
-    background-color: rgb(161, 228, 137);
+    // background-color: rgb(161, 228, 137);
+    background-color: #e48152;
 }
 
 .mainflex {
@@ -76,7 +18,7 @@
     margin: 0;
     padding: 0.2rem;
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .item {
@@ -85,8 +27,13 @@
 
 .text {
     text-align: center;
+    color: white;
 }
 
 .rightCol h2 {
     text-align: center;
+}
+
+.a {
+    color: white;
 }

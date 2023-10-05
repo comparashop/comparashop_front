@@ -1,6 +1,6 @@
 .mapcontainer {
-    width: 800px;
-    height: 400px;
+    width: 1000px;
+    height: 500px;
     margin: auto;
 }
 
@@ -13,4 +13,40 @@
     top: 0%; /* Placez l'icône en haut */
     right: 5%; /* Placez l'icône à droite */
     // transform: translate(50%, -50%); /* Pour centrer verticalement et horizontalement l'icône */
+}
+
+.divmain {
+    background-color: grey;
+    width: 62%;
+    padding: 2%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 5px;
+}
+
+.categorie {
+    display: flex;
+    margin: auto;
+}
+
+.p {
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+}
+.divCategorie {
+    margin-left: 19%;
+    margin-right: 19%;
+}
+.coloredText {
+    /* Style par défaut */
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }

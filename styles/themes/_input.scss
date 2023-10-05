@@ -9,24 +9,21 @@
         width: 50%;
         padding-top: 5px;
         padding-bottom: 5px;
-        border: 2px solid #d3d3d3;
+        border: 2px solid white;
+        color: rgb(36, 32, 32);
         &:focus {
-            border: 1px solid black;
+            border: 1px solid rgb(36, 32, 32);
         }
     }
     &-select2 {
         width: 200px;
-        height: 25px;
+        height: 15px;
         padding: 10px;
-        background-color: transparent;
-        border: 1px solid rgb(161, 228, 137);
+        background-color: white;
+        border: 0px;
         &:focus {
-            border: 1px solid black;
+            border: 1px solid rgb(36, 32, 32);
         }
-        &-selectcategory {
-            height: 30px;
-        }
-        font-weight: bold;
-        color: #625f5f;
+        color: rgb(36, 32, 32);
     }
 }
