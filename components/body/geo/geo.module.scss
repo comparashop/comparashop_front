@@ -3,3 +3,14 @@
     height: 400px;
     margin: auto;
 }
+
+.main {
+    position: relative;
+}
+
+.sousmain {
+    position: absolute; /* Utilisez la position absolue pour positionner l'icône par rapport à la div parente */
+    top: 0%; /* Placez l'icône en haut */
+    right: 5%; /* Placez l'icône à droite */
+    // transform: translate(50%, -50%); /* Pour centrer verticalement et horizontalement l'icône */
+}

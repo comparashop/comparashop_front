@@ -31,16 +31,17 @@
         }
     }
     &-white {
-        background-color: #ffffff;
-        color: #424446;
+        background-color: rgb(161, 228, 137);
+        color: #0f6819;
         width: 25%;
         margin-right: auto;
         margin-left: auto;
         border-radius: 5px;
         font-weight: bold;
+        border: 1px solid rgb(161, 228, 137);
         &:hover {
             background-color: #ffffff;
-            color: #424446;
+            color: #0f6819;
         }
     }
 

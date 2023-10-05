@@ -107,7 +107,7 @@ function Map({ localization, isVisible, setIsVisible, rayon }) {
     }, [markers])
 
     return (
-        <div>
+        <div className={styles.main}>
             <GoogleMap
                 zoom={Math.log2((40075016.686 * 50) / (360 * rayon)) - 8}
                 center={localization}
@@ -145,16 +145,18 @@ function Map({ localization, isVisible, setIsVisible, rayon }) {
             <br />
             <br />
             <br />
-            {isVisible ? (
-                <GeoModal
-                    isVisible={isVisible}
-                    setIsVisible={setIsVisible}
-                    idmarker={idMarker}
-                    markers={visibleMarkers.filter(el => el.id == idMarker)}
-                />
-            ) : (
-                ""
-            )}
+            <div className={styles.sousmain}>
+                {isVisible ? (
+                    <GeoModal
+                        isVisible={isVisible}
+                        setIsVisible={setIsVisible}
+                        idmarker={idMarker}
+                        markers={visibleMarkers.filter(el => el.id == idMarker)}
+                    />
+                ) : (
+                    ""
+                )}
+            </div>
         </div>
     )
 }

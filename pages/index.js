@@ -23,24 +23,27 @@ export default function Home() {
     return (
         <div className={styles.parent}>
             <div className={styles.child1}>
-                <h1 className="text text-center">Choisissez un panier</h1>
+                <h1 className={`text text-center ${styles.h1}`}>Choisissez un panier</h1>
+                <br />
                 {isVisible ? (
                     <div className={styles.button}>
-                        <AiFillEnvironment size={20} />
-
-                        <Geobis setAd={setAd} ad={ad} />
-
-                        <Input
-                            label=""
-                            onChange={e => {
-                                setRadius(e.target.value)
-                            }}
-                            className="input input-select2"
-                            placeholder="Rayon en km"
-                        />
+                        <AiFillEnvironment color={"#0f6819"} size={40} />
+                        <div className={styles.div1}>
+                            <Geobis setAd={setAd} ad={ad} />
+                        </div>
+                        <div className={styles.div2}>
+                            <Input
+                                label=""
+                                onChange={e => {
+                                    setRadius(e.target.value)
+                                }}
+                                className="input input-select2"
+                                placeholder="Rayon en km"
+                            />
+                        </div>
                         <Button
                             title="Valider"
-                            className="btn btn-grey"
+                            className="btn btn-white"
                             onClick={() => {
                                 sendAddress()
                             }}
@@ -49,7 +52,7 @@ export default function Home() {
                 ) : (
                     ""
                 )}
-
+                <br />
                 <div className={styles.mainmodal}>
                     <div className={styles.modal}>
                         <Button
@@ -80,6 +83,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <br />
         </div>
     )
 }

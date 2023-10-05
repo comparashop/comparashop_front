@@ -17,9 +17,9 @@
     &-select2 {
         width: 200px;
         height: 25px;
-        padding: 5px;
+        padding: 10px;
         background-color: transparent;
-        border: 2px solid #d3d3d3;
+        border: 1px solid rgb(161, 228, 137);
         &:focus {
             border: 1px solid black;
         }
@@ -27,6 +27,6 @@
             height: 30px;
         }
         font-weight: bold;
-        color: #d3d3d3;
+        color: #625f5f;
     }
 }
