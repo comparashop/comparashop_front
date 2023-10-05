@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
+import Image from "next/image"
 import Input from "../components/body/input/input"
+import QRcode from "../public/qr-code-factice.png"
 import Button from "../components/body/button/button"
 import { AiOutlineClose, AiFillEnvironment } from "react-icons/ai"
 import styles from "./informations.module.scss"
@@ -25,23 +27,26 @@ const Informations = () => {
     }
 
     return (
-        <div>
-            <h1 className="text text-center">
-                Entrez les informations de votre panier ou scanner votre qrcode
+        <div className="mainContent">
+            <h1 className={`text text-center ${styles.title}`}>
+                Entrez les informations de votre panier <br />
+                ou scanner votre CODE-QR
             </h1>
             <div className={styles.button}>
                 <Button
-                    title="Scanner le ticket de caisse"
+                    title="Scanner votre ticket de caisse"
                     onClick={() => {
                         scanTicket()
                     }}
-                    className="btn btn-link"
-                />
+                    className={`btn btn-link ${styles.qrcode}`}
+                >
+                    <Image src={QRcode} height={80} width={80} />
+                </Button>
             </div>
             <div className={styles.main}>
-                <div className={styles.col1}>
+                <div className={styles.col}>
                     <Input
-                        label="Nom de l'aliment"
+                        label="Nom de l'article"
                         onChange={e => {
                             setAliment(e.target.value)
                         }}
@@ -66,33 +71,55 @@ const Informations = () => {
                     />
                 </div>
                 {visible ? (
-                    <div className={styles.col2}>
+                    <div className={styles.col}>
                         {listAliment ? (
                             <div>
-                                <h1 className={styles.h1}>Liste</h1>
+                                <h1 className={styles.h1}>{"Produits en cours d'ajout"}</h1>
                                 <div className={styles.box}>
-                                    <AiFillEnvironment color="#ffffff" size={20} />
-                                    <Geobis setAd={setLocalization} ad={localization} />
+                                    <div>
+                                        <AiFillEnvironment color="#ffffff" size={20} />
+                                    </div>
+                                    <div>
+                                        <Geobis setAd={setLocalization} ad={localization} />
+                                    </div>
                                 </div>
-                                <table className={styles.table}>
-                                    <thead>
-                                        <tr>
-                                            <th className={styles.p}>Aliment</th>
-                                            <th className={styles.p}>Prix</th>
-                                            <th className={styles.p}>Supprimer</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className={styles.tbody}>
-                                        <tr>
+                                <div>
+                                    <ul className={styles.liMenu}>
+                                        <li>
+                                            <h2 className={styles.h2}>Article</h2>{" "}
                                             {listAliment.map(element => (
                                                 <div
                                                     className={styles.divmap}
                                                     key={element.aliment}
                                                 >
                                                     <p className={styles.td}>{element.aliment}</p>
-                                                    <p className={styles.td}>
-                                                        {element.prix} euros
-                                                    </p>
+                                                    <p className={styles.td}></p>
+
+                                                    <br />
+                                                </div>
+                                            ))}
+                                        </li>
+
+                                        <li>
+                                            <h2 className={styles.h2}>Prix</h2>{" "}
+                                            {listAliment.map(element => (
+                                                <div
+                                                    className={styles.divmap}
+                                                    key={element.aliment}
+                                                >
+                                                    <p className={styles.td}>{element.prix} €</p>
+
+                                                    <br />
+                                                </div>
+                                            ))}
+                                        </li>
+                                        <li>
+                                            <h2 className={styles.h2}>Supprimer</h2>{" "}
+                                            {listAliment.map(element => (
+                                                <div
+                                                    className={styles.divmap}
+                                                    key={element.aliment}
+                                                >
                                                     <p className={styles.td}>
                                                         <Button
                                                             onClick={() => {
@@ -111,9 +138,10 @@ const Informations = () => {
                                                     <br />
                                                 </div>
                                             ))}
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                        </li>
+                                    </ul>
+                                </div>
+
                                 <br />
                                 <div className={styles.button2}>
                                     <Button
@@ -121,7 +149,7 @@ const Informations = () => {
                                         onClick={() => {
                                             sendInfo()
                                         }}
-                                        className="btn btn-white"
+                                        className="btn btn-grey"
                                     />
                                 </div>
                             </div>
