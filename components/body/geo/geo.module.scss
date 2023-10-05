@@ -16,9 +16,11 @@
 }
 
 .divmain {
-    background-color: grey;
+    background-color: #e48152;
     width: 62%;
-    padding: 2%;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
     margin: auto;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -27,7 +29,7 @@
 
 .categorie {
     display: flex;
-    margin: auto;
+    margin-left: 10%;
 }
 
 .p {
@@ -49,4 +51,16 @@
 
 .green {
     color: green;
+}
+
+.h1 {
+    color: rgb(36, 32, 32);
+}
+
+.ptaille {
+    color: rgb(36, 32, 32);
+}
+
+.pblanc {
+    color: white;
 }

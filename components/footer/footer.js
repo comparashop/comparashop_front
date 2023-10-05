@@ -149,6 +149,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <br />
         </footer>
     )
 }

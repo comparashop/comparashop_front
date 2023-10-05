@@ -26,6 +26,23 @@ const Informations = () => {
         //accéder à l'appareil photo du téléphone
     }
 
+    const scrollpage = () => {
+        const content = document.getElementById("content")
+
+        // Obtenez la position de la div modifiée par rapport à la fenêtre
+        const contentTopOffset = content.getBoundingClientRect().top + window.scrollY
+
+        // Définissez la position de défilement pour faire défiler un peu plus bas que la div modifiée (par exemple, 100 pixels de plus)
+        window.scrollTo({
+            top: contentTopOffset, // Ajoutez 100 pixels à la position actuelle
+            behavior: "smooth",
+        })
+        // window.scrollTo({
+        //     top: document.body.scrollWidth,
+        //     behavior: "smooth", // Cette option permet un défilement en douceur
+        // })
+    }
+
     return (
         <div className="mainContent">
             <br />
@@ -69,101 +86,108 @@ const Informations = () => {
                         onClick={() => {
                             setVisible(true)
                             setListAliment([...listAliment, { aliment: aliment, prix: price }])
+                            scrollpage()
                         }}
                         className="btn btn-grey"
                     />
                 </div>
-                {visible ? (
-                    <div className={styles.col}>
-                        {listAliment ? (
-                            <div>
-                                <h1 className={styles.h1}>{"Produits en cours d'ajout"}</h1>
-                                <br />
-                                <div className={styles.box}>
-                                    <div>
-                                        <AiFillEnvironment color="#ffffff" size={30} />
-                                    </div>
-                                    <div>
-                                        <Geobis setAd={setLocalization} ad={localization} />
-                                    </div>
-                                </div>
+                <div id="content">
+                    {visible ? (
+                        <div className={styles.col}>
+                            {listAliment ? (
                                 <div>
-                                    <ul className={styles.liMenu}>
-                                        <li>
-                                            <h2 className={styles.h2}>Article</h2>
-                                            {listAliment.map(element => (
-                                                <div
-                                                    className={styles.divmap}
-                                                    key={element.aliment}
-                                                >
-                                                    <p className={styles.td}>{element.aliment}</p>
-                                                    <p className={styles.td}></p>
+                                    <h1 className={styles.h1}>{"Produits en cours d'ajout"}</h1>
+                                    <br />
+                                    <div className={styles.box}>
+                                        <div>
+                                            <AiFillEnvironment color="#ffffff" size={30} />
+                                        </div>
+                                        <div>
+                                            <Geobis setAd={setLocalization} ad={localization} />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <ul className={styles.liMenu}>
+                                            <li>
+                                                <h2 className={styles.h2}>Article</h2>
+                                                {listAliment.map(element => (
+                                                    <div
+                                                        className={styles.divmap}
+                                                        key={element.aliment}
+                                                    >
+                                                        <p className={styles.td}>
+                                                            {element.aliment}
+                                                        </p>
+                                                        <p className={styles.td}></p>
 
-                                                    <br />
-                                                </div>
-                                            ))}
-                                        </li>
+                                                        <br />
+                                                    </div>
+                                                ))}
+                                            </li>
 
-                                        <li>
-                                            <h2 className={styles.h2}>Prix</h2>
-                                            {listAliment.map(element => (
-                                                <div
-                                                    className={styles.divmap}
-                                                    key={element.aliment}
-                                                >
-                                                    <p className={styles.td}>{element.prix} €</p>
+                                            <li>
+                                                <h2 className={styles.h2}>Prix</h2>
+                                                {listAliment.map(element => (
+                                                    <div
+                                                        className={styles.divmap}
+                                                        key={element.aliment}
+                                                    >
+                                                        <p className={styles.td}>
+                                                            {element.prix} €
+                                                        </p>
 
-                                                    <br />
-                                                </div>
-                                            ))}
-                                        </li>
-                                        <li>
-                                            <h2 className={styles.h2}>Supprimer</h2>
-                                            {listAliment.map(element => (
-                                                <div
-                                                    className={styles.divmap}
-                                                    key={element.aliment}
-                                                >
-                                                    <p className={styles.td}>
-                                                        <div className={styles.icon}>
-                                                            <AiOutlineClose
-                                                                onClick={() => {
-                                                                    setListAliment(
-                                                                        listAliment.filter(
-                                                                            al => al != element,
-                                                                        ),
-                                                                    )
-                                                                }}
-                                                                color="#ffffff"
-                                                            />
-                                                        </div>
-                                                    </p>
+                                                        <br />
+                                                    </div>
+                                                ))}
+                                            </li>
+                                            <li>
+                                                <h2 className={styles.h2}>Supprimer</h2>
+                                                {listAliment.map(element => (
+                                                    <div
+                                                        className={styles.divmap}
+                                                        key={element.aliment}
+                                                    >
+                                                        <p className={styles.td}>
+                                                            <div className={styles.icon}>
+                                                                <AiOutlineClose
+                                                                    onClick={() => {
+                                                                        setListAliment(
+                                                                            listAliment.filter(
+                                                                                al => al != element,
+                                                                            ),
+                                                                        )
+                                                                    }}
+                                                                    color="#ffffff"
+                                                                />
+                                                            </div>
+                                                        </p>
 
-                                                    <br />
-                                                </div>
-                                            ))}
-                                        </li>
-                                    </ul>
+                                                        <br />
+                                                    </div>
+                                                ))}
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <br />
+                                    <div className={styles.button2}>
+                                        <Button
+                                            title="Valider"
+                                            onClick={() => {
+                                                sendInfo()
+                                            }}
+                                            className="btn btn-grey"
+                                        />
+                                    </div>
                                 </div>
-
-                                <br />
-                                <div className={styles.button2}>
-                                    <Button
-                                        title="Valider"
-                                        onClick={() => {
-                                            sendInfo()
-                                        }}
-                                        className="btn btn-grey"
-                                    />
-                                </div>
-                            </div>
-                        ) : (
-                            ""
-                        )}
-                    </div>
-                ) : (
-                    ""
-                )}
+                            ) : (
+                                ""
+                            )}
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                </div>
             </div>
             <br />
             <br />

@@ -75,33 +75,22 @@ function Map({ localization, isVisible, setIsVisible, rayon, id }) {
         setVisibleMarkers(markers.filter(marker => isMarkerInRadius(marker.shop, rayon * 1000)))
     }, [markers])
 
-    const putColorDivMarker = () => {
-        const changeColorButton = document.getElementById("changeColorButton")
-        const textToChange = document.getElementById("textToChange")
-        changeColorButton.addEventListener("click", function () {
-            // Supprimez toutes les classes de l'élément texte
-            textToChange.className.remove("red", "green")
-
-            // Ajoutez la classe correspondant à la couleur que vous souhaitez appliquer
-            textToChange.className.add("blue") // Par exemple, pour la couleur bleue
-        })
-    }
-
     const text = elementid => {
-        const maDiv = document.getElementById(elementid)
-        console.log(maDiv, "maDiv")
-        // maDiv.className = "maClasse" // Par exemple, pour la couleur rouge
-        maDiv.style.color = "red" // maDiv.classList.replace("transparent", "red")
-        maDiv.style.backgroundColor = "green"
         setAncienID(elementid)
         if (ancienId) {
             const maDiv2 = document.getElementById(ancienId)
-            maDiv2.style.color = "grey" // maDiv.classList.replace("transparent", "red")
-            maDiv2.style.backgroundColor = "black"
+            maDiv2.style.color = "rgb(36, 32, 32)"
+            maDiv2.style.backgroundColor = "#e48152"
         }
+        const maDiv = document.getElementById(elementid)
+        maDiv.style.color = "white"
+        maDiv.style.backgroundColor = "rgb(36, 32, 32)"
+
+        const contentTopOffset = maDiv.getBoundingClientRect().top + window.scrollY
+
         window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth", // Cette option permet un défilement en douceur
+            top: contentTopOffset,
+            behavior: "smooth",
         })
     }
 
@@ -146,11 +135,13 @@ function Map({ localization, isVisible, setIsVisible, rayon, id }) {
                 {panierTitle && panierAliment && visibleMarkers ? (
                     <div>
                         <div className={styles.divCategorie}>
-                            <h2 className="text text-center">Catégorie : {panierTitle}</h2>
+                            <h1 className={`text text-center ${styles.h1}`}>
+                                Catégorie : {panierTitle}
+                            </h1>
                             <div className={styles.categorie}>
                                 {panierAliment.map(al => (
                                     <div className={styles.p} key={al}>
-                                        <p>{al}</p>
+                                        <h3 className={styles.ptaille}>{al}</h3>
                                     </div>
                                 ))}
                             </div>
@@ -159,9 +150,13 @@ function Map({ localization, isVisible, setIsVisible, rayon, id }) {
                             .sort((a, b) => (a.priceTotal > b.priceTotal ? 1 : -1))
                             .map(el => (
                                 <div id={el.shop._id} className={styles.divmain} key={el.shop._id}>
-                                    <h1 className="text text-center">{el.shop.name}</h1>
-                                    <p>Le magasin se situe à {el.shop.adresse}</p>
-                                    <p>Le prix total du panier est de : {el.priceTotal} euros</p>
+                                    <h2 className={`text text-center`}>{el.shop.name}</h2>
+                                    <p className={styles.pblanc}>
+                                        Le magasin se situe à {el.shop.adresse}
+                                    </p>
+                                    <p className={styles.pblanc}>
+                                        Le prix total du panier est de : {el.priceTotal} euros
+                                    </p>
                                 </div>
                             ))}
                     </div>
@@ -169,6 +164,8 @@ function Map({ localization, isVisible, setIsVisible, rayon, id }) {
                     ""
                 )}
             </div>
+            <br />
+            <br />
         </div>
     )
 }

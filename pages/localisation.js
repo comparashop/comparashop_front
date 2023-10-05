@@ -32,7 +32,7 @@ const Localisation = () => {
         <div>
             <br />
             <br />
-            <h1 className="text text-center">
+            <h1 className={`text text-center ${styles.title}`}>
                 Retrouver les différents commences dans un rayon de {radius} km
             </h1>
             <br />
